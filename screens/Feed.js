@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Dimensions } from 'react-native';
 import { HeartIcon , ChatBubbleOvalLeftIcon, PaperAirplaneIcon} from 'react-native-heroicons/outline'
+import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native';
 
 const width = Dimensions.get('window').width; //full width
 const height = Dimensions.get('window').height; //full height
@@ -54,7 +56,10 @@ const tweets = [
 ];
 
 
-const Feed = () => (
+const Feed = () => {
+const navigation = useNavigation();
+
+return(
   <SafeAreaView style={styles.safeArea}>
     <View style={{ backgroundColor: '#FFF', height: 50, justifyContent: 'center', alignItems: 'center' }}>
       <Text style={{ color: '#000', fontSize: 30, fontWeight: "bold" }}>Traveet</Text>
@@ -62,12 +67,12 @@ const Feed = () => (
     <ScrollView style={styles.container}>
       {tweets.map(tweet => (
         <>
-        <View key={tweet.id} style={styles.tweetContainer}>
+        <TouchableOpacity key={tweet.id} style={styles.tweetContainer} onPress={() => navigation.navigate("Profile")}>
           <Image source={{ uri: tweet.avatar }} style={styles.avatar} />
           <View style={{ flex: 1 }}>
             <Text style={styles.userName}>{tweet.user}</Text>
           </View>
-        </View>
+        </TouchableOpacity>
         <View >
         <Image  source={{ uri: 'https://katieone.com/wp-content/uploads/2020/08/38281424_301647183748110_6718974789786009600_n-4.jpg' }}  style={{ width: width , height: height * 0.4 }} />
         </View>
@@ -88,13 +93,12 @@ const Feed = () => (
       ))}
     </ScrollView>
   </SafeAreaView>
-);
+);}
 
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    marginTop: 50,
-    backgroundColor: '#000', // or any other background color
+    backgroundColor: '#FFF',
   },container: {
     flex: 1,
     backgroundColor: '#fff',
