@@ -21,10 +21,10 @@ const ProfileScreen = () => {
     postsX: 30,
     profilePicture: 'https://via.placeholder.com/100',
     bio: '📷 Photographer | 🌎 Traveler | 📚 Book Lover',
-    posts: Array.from({ length: 30 }, (_, i) => `https://via.placeholder.com/150?text=Post${i + 1}`),
+    posts: Array.from({ length: 30 }, (_, i) => `https://picsum.photos/200/300?random=${i + 1}`),
   };
 
-  // Render post item
+  
   const renderPostItem = ({ item }) => (
     <Image source={{ uri: item }} style={styles.postItem} />
   );
