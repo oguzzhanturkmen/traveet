@@ -6,8 +6,8 @@ import { HeartIcon , ChatBubbleOvalLeftIcon, PaperAirplaneIcon} from 'react-nati
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native';
 
-const width = Dimensions.get('window').width; //full width
-const height = Dimensions.get('window').height; //full height
+const width = Dimensions.get('window').width; 
+const height = Dimensions.get('window').height; 
 
 const tweets = [
   {
@@ -52,7 +52,7 @@ const tweets = [
     avatar: 'https://via.placeholder.com/50/FF00FF/FFFFFF?text=User6',
     time: '1d'
   },
-  // ... more mock tweets
+  
 ];
 
 
@@ -60,6 +60,7 @@ const Feed = () => {
 const navigation = useNavigation();
 
 return(
+  <View style={{width : width , height : height}}>
   <SafeAreaView style={styles.safeArea}>
     <View style={{ backgroundColor: '#FFF', height: 50, justifyContent: 'center', alignItems: 'center' }}>
       <Text style={{ color: '#000', fontSize: 30, fontWeight: "bold" }}>Traveet</Text>
@@ -74,7 +75,7 @@ return(
           </View>
         </TouchableOpacity>
         <View >
-        <Image  source={{ uri: 'https://katieone.com/wp-content/uploads/2020/08/38281424_301647183748110_6718974789786009600_n-4.jpg' }}  style={{ width: width , height: height * 0.4 }} />
+        <Image  source={{ uri: `https://picsum.photos/900/?random=${Math.random()}` }}  style={{ width: width , height: height * 0.45 }} />
         </View>
         <View style={{ padding: 10 }}>
           
@@ -93,12 +94,14 @@ return(
       ))}
     </ScrollView>
   </SafeAreaView>
+  </View>
 );}
 
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: '#FFF',
+    
   },container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -122,7 +125,7 @@ const styles = StyleSheet.create({
   userName: {
     fontWeight: 'bold',
   },
-  // ... other styles
+  
 });
 
 export default Feed;
