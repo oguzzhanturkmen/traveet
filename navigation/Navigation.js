@@ -48,8 +48,8 @@ function BottomTabNavigator() {
       
     >
       <Tab.Screen name="Feed" component={Feed} options={{ headerShown: false  }} />
-      <Tab.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
       <Tab.Screen name="AddPost" component={AddPost} options={{ headerShown: false }} />
+      <Tab.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
       {/* Add more Tab.Screen for other tabs if needed */}
     </Tab.Navigator>
   );
@@ -61,13 +61,19 @@ export default function Navigation() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen 
-          name="Feed" 
+          name="FeedScreen" 
           component={BottomTabNavigator} 
+          options={{ headerShown: false }} 
+        />
+         <Stack.Screen 
+          name="ProfileScreen" 
+          component={Profile} 
           options={{ headerShown: false }} 
         />
        
         {/* Add more Stack.Screen for other stack navigators if needed */}
       </Stack.Navigator>
+      
     </NavigationContainer>
   );
 }
