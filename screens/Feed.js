@@ -122,7 +122,7 @@ return(
     <ScrollView style={styles.container}>
       {tweets.map(tweet => (
         <>
-        <TouchableOpacity key={tweet.id} style={styles.tweetContainer} onPress={() => navigation.navigate("Profile")}>
+        <TouchableOpacity key={tweet.id} style={styles.tweetContainer} onPress={() => navigation.navigate("ProfileScreen")}>
           <Image source={{ uri: tweet.avatar }} style={styles.avatar} />
           <View style={{ flex: 1 }}>
             <Text style={styles.userName}>{tweet.user}</Text>

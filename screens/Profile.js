@@ -9,7 +9,7 @@ import { TouchableOpacity } from 'react-native';
 const { width , height } = Dimensions.get('window');
 
 
-const ProfileScreen = () => {
+const Profile = () => {
     const navigation = useNavigation();
 
   // Mock user data
@@ -63,6 +63,14 @@ const ProfileScreen = () => {
           <Text style={styles.fullName}>{userData.fullName}</Text>
         </View>
       <Text style={styles.bio}>{userData.bio}</Text>
+      <View style={{ flex : 1 , flexDirection : "row", justifyContent : "space-between" , paddingHorizontal : width * 0.05 , paddingBottom : height * 0.02}} >
+      <View style={{ width : width * 0.4, height : height * 0.04 ,  borderColor : "black" , borderStyle : "solid" , borderWidth: 1, alignItems : "center", justifyContent : "center" , borderRadius : 10}} >
+        <Text style={{ color: 'black',fontWeight : "bold" }}>Edit Profile</Text>
+        </View>
+        <View style={{ width : width * 0.4, height : height * 0.04 ,  borderColor : "black" , borderStyle : "solid" , borderWidth: 1 , alignItems : "center", justifyContent : "center" , borderRadius : 10}} >
+        <Text style={{ color: 'black', fontWeight : "bold" }}>Share Profile</Text>
+        </View>
+      </View>
       <FlatList
         data={userData.posts}
         renderItem={renderPostItem}
@@ -102,6 +110,7 @@ const styles = StyleSheet.create({
   username: {
     fontWeight: 'bold',
     fontSize: 18,
+    paddingBottom: 10,
   },
   fullName: {
     color: 'grey',
@@ -124,4 +133,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfileScreen;
+export default Profile;
